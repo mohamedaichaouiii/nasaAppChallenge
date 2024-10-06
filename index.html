@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Nasa App Challenge</title>
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Boxicons for icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <a href="#" class="logo">
+      <img src="img/logo.png" alt="Mars Logo"> Mars
+    </a>
+    
+    <!-- Navigation Menu -->
+    <ul class="navlist">
+      <li class="lilink"><a href="#home" class="nav-item">Home</a></li>
+      <li class="lilink"><a href="#flight-list" class="nav-item">Flight List</a></li>
+      <li class="lilink"><a href="#mission-history" class="nav-item">Mission History</a></li>
+      <li class="lilink"><a href="#experience" class="nav-item">Experience</a></li>
+    </ul>
+
+    <!-- Right-side content: Login button and menu icon -->
+    <div class="right-side">
+      <a href="#" class="marsBtn">Login</a>
+      <div id="menu-icon" class='bx bx-menu'></div>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="home">
+    <div class="home-text">
+      <h1><span>Astronautics: </span>Humanity's</h1>
+      <h2>Gateway to the Stars</h2>
+      <a href="#" class="marsBtn">Join with us</a>
+    </div>
+
+    <!-- Home Images -->
+    <div class="home-img">
+      <img src="img/hero.png" alt="Hero Image" class="hero">
+      <img src="img/light-moon.png" alt="Moon Light" class="moon-light">
+    </div>
+
+    <!-- Earth Rotating Image -->
+    <div class="earth-rotate">
+      <img src="img/earthPlanet.png" alt="Earth Planet" class="earth">
+    </div>
+  </section>
+
+
+  <!-- Flight List Section -->
+  <section id="flight-list" class="flight-list">
+    <div class="container">
+      <button id="prev" class="carousel-btn">&#10094;</button> <!-- Left Arrow -->
+      <div id="carousel" class="carousel">
+        <div class="flight-box active">
+          <div class="planet-img">
+            <img src="img/neptune.png" alt="Neptune">
+          </div>
+          <h2>Neptune</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel labore odit quos? Eius, esse delectus?</p>
+          <a href="#" class="marsBtn">Join with us</a>
+        </div>
+        <div class="flight-box">
+          <div class="planet-img">
+            <img src="img/mars.png" alt="Mars">
+          </div>
+          <h2>Mars</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel labore odit quos? Eius, esse delectus?</p>
+          <a href="#" class="marsBtn">Join with us</a>
+        </div>
+        <div class="flight-box">
+          <div class="planet-img">
+            <img src="img/mercury.png" alt="Mercury">
+          </div>
+          <h2>Mercury</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel labore odit quos? Eius, esse delectus?</p>
+          <a href="#" class="marsBtn">Join with us</a>
+        </div>
+        <div class="flight-box">
+          <div class="planet-img">
+            <img src="img/uranus.png" alt="Uranus">
+          </div>
+          <h2>Uranus</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel labore odit quos? Eius, esse delectus?</p>
+          <a href="#" class="marsBtn">Join with us</a>
+        </div>
+      </div>
+      <button id="next" class="carousel-btn">&#10095;</button> <!-- Right Arrow -->
+    </div>
+  </section>
+  
+
+  <!-- Mission History Section -->
+  <section id="mission-history" class="mission-history">
+    <div class="img-mission">
+        <div class="circle-animate">
+                <span style="--i:0;"></span>
+                <span style="--i:1;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:3;"></span>
+        </div>
+        <img src="img/Spaceship.png" alt="Spaceship">
+
+    </div>
+        <div class="text-mission">
+            <h3>We have the best space shuttle on Earth</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing hthyg hfgko bsuhuo khuish ssuuhs elit.t veritatis reiciendis optio nemo ut?</p>
+            <div class="mission-btn">
+                <a href="#" class="marsBtn">Join with us</a>
+            </div>
+        </div>
+    
+  </section>
+  <section id="experience" class="flight-list experience">
+    <div class="container">
+        <div class="flight-box">
+            <img src="img/helmet.png" alt="">
+            <div class="exp-details">
+                    <div class="title">Helmet</div>
+                    <div class="title">254855</div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat soluta id doloremque est molestias voluptatibus dolore saepe sunt at inventore reiciendis veritatis explicabo, mollitia repellat doloribus excepturi distinctio a sapiente.</p>
+
+            </div>
+        </div>
+        <div class="flight-box">
+            <img src="img/mars-rock.jpg" alt="">
+            <div class="exp-details">
+                    <div class="title">Helmet</div>
+                    <div class="title">254855</div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat soluta id doloremque est molestias voluptatibus dolore saepe sunt at inventore reiciendis veritatis explicabo, mollitia repellat doloribus excepturi distinctio a sapiente.</p>
+
+            </div>
+        </div>
+        <div class="flight-box">
+            <img src="img/space-suit.jpg" alt="">
+            <div class="exp-details">
+                    <div class="title">Helmet</div>
+                    <div class="title">254855</div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat soluta id doloremque est molestias voluptatibus dolore saepe sunt at inventore reiciendis veritatis explicabo, mollitia repellat doloribus excepturi distinctio a sapiente.</p>
+
+            </div>
+        </div>
+        
+        <div class="flight-box">
+            <img src="img/astronaut.png" alt="">
+            <div class="exp-details">
+                    <div class="title">Helmet</div>
+                    <div class="title">254855</div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat soluta id doloremque est molestias voluptatibus dolore saepe sunt at inventore reiciendis veritatis explicabo, mollitia repellat doloribus excepturi distinctio a sapiente.</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="keplerian-form">
+        <form>
+          <label for="eccentricity">Eccentricity (e):</label>
+          <input type="number" id="eccentricity" name="eccentricity" step="any" required><br>
+      
+          <label for="semiMajorAxis">Semi-major Axis (a):</label>
+          <input type="number" id="semiMajorAxis" name="semiMajorAxis" step="any" required><br>
+      
+          <label for="inclination">Inclination (i):</label>
+          <input type="number" id="inclination" name="inclination" step="any" required><br>
+      
+          <label for="trueAnomaly">True Anomaly (θ) in degrees:</label>
+          <input type="number" id="trueAnomaly" name="trueAnomaly" step="any" required><br>
+      
+          <button type="button" id="plotButton" class="marsBtn">Plot Orbit</button>
+        </form>
+      </div>
+      <div id="result"></div>
+      
+      
+  </section>
+
+  <!-- External JavaScript file -->
+  <script src="keplerian.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
