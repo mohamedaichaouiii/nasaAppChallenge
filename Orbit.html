@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>3D Orrery Interactif</title>
+
+    <style>
+
+        body { margin: 0; }
+
+        canvas { display: block; }
+
+    </style>
+
+    <!-- Importation de Three.js -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+<script>
+
+    // Initialiser la scène, la caméra et le rendu
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    const renderer = new THREE.WebGLRenderer();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    document.body.appendChild(renderer.domElement);
+
+
+
+
+    // Ajouter la lumière pour éclairer les objets
+
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+
+    light.position.set(5, 5, 5);
+
+    scene.add(light);
+
+
+
+
+    // Créer le soleil
+
+    const sunGeometry = new THREE.SphereGeometry(1.2, 32, 32); // Correction du nombre de segments
+
+    const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+
+    const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+
+    sun.position.set(1.5, 0, 0); // Position du soleil
+
+    scene.add(sun);
+
+
+
+
+    // Créer la première orbite (ellipse) pour Mercure
+
+    const curve1 = new THREE.EllipseCurve(0, 0, 3, 2, 0, 2 * Math.PI, false, 0);
+
+    const points1 = curve1.getPoints(50);
+
+    const orbitGeometry1 = new THREE.BufferGeometry().setFromPoints(points1); // Correction ici
+
+    const orbitMaterial1 = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    const orbit1 = new THREE.Line(orbitGeometry1, orbitMaterial1);
+
+    scene.add(orbit1);
+
+
+
+
+    // Créer la 1ère planète (Mercure)
+
+    const mercureGeometry1 = new THREE.SphereGeometry(0.15, 32, 32);
+
+    const mercureMaterial1 = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
+
+    const mercure = new THREE.Mesh(mercureGeometry1, mercureMaterial1);
+
+    scene.add(mercure);
+
+
+
+
+    // Créer la deuxième orbite (ellipse)
+
+    const curve2 = new THREE.EllipseCurve(0, 0, 4, 3, 0, 2 * Math.PI, false, 0);
+
+    const points2 = curve2.getPoints(50);
+
+    const orbitGeometry2 = new THREE.BufferGeometry().setFromPoints(points2); // Correction ici
+
+    const orbitMaterial2 = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    const orbit2 = new THREE.Line(orbitGeometry2, orbitMaterial2);
+
+    scene.add(orbit2);
+
+
+
+
+    // Créer la deuxième planète (Vénus)
+
+    const venusGeometry2 = new THREE.SphereGeometry(0.35, 32, 32);
+
+    const venusMaterial2 = new THREE.MeshBasicMaterial({ color: 0xF5DEB3 });
+
+    const venus = new THREE.Mesh(venusGeometry2, venusMaterial2);
+
+    scene.add(venus);
+
+
+
+
+    // Créer la troisième orbite (ellipse)
+
+    const curve3 = new THREE.EllipseCurve(0, 0, 5, 4, 0, 2 * Math.PI, false, 0);
+
+    const points3 = curve3.getPoints(50);
+
+    const orbitGeometry3 = new THREE.BufferGeometry().setFromPoints(points3); // Correction ici
+
+    const orbitMaterial3 = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    const orbit3 = new THREE.Line(orbitGeometry3, orbitMaterial3);
+
+    scene.add(orbit3);
+
+
+
+
+    // Créer la troisième planète (Terre)
+
+    const earthGeometry3 = new THREE.SphereGeometry(0.45, 32, 32);
+
+    const earthMaterial3 = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+
+    const earth = new THREE.Mesh(earthGeometry3, earthMaterial3);
+
+    scene.add(earth); // Correction du nom ici
+
+
+
+
+    // Créer la quatrième orbite (ellipse)
+
+    const curve4 = new THREE.EllipseCurve(0, 0, 6, 5, 0, 2 * Math.PI, false, 0);
+
+    const points4 = curve4.getPoints(50);
+
+    const orbitGeometry4 = new THREE.BufferGeometry().setFromPoints(points4); // Correction ici
+
+    const orbitMaterial4 = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    const orbit4 = new THREE.Line(orbitGeometry4, orbitMaterial4);
+
+    scene.add(orbit4);
+
+
+
+
+    // Créer la quatrième planète (Mars)
+
+    const marsGeometry4 = new THREE.SphereGeometry(0.25, 32, 32);
+
+    const marsMaterial4 = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+
+    const mars = new THREE.Mesh(marsGeometry4, marsMaterial4);
+
+    scene.add(mars);
+
+
+
+
+    // Créer la cinquième orbite (ellipse) pour Jupiter
+
+    const curve5 = new THREE.EllipseCurve(0, 0, 12, 11, 0, 2 * Math.PI, false, 0);
+
+    const points5 = curve5.getPoints(50);
+
+    const orbitGeometry5 = new THREE.BufferGeometry().setFromPoints(points5);
+
+    const orbitMaterial5 = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    const orbit5 = new THREE.Line(orbitGeometry5, orbitMaterial5);
+
+    scene.add(orbit5);
+
+
+
+
+    // Créer la planète Jupiter
+
+    const jupiterGeometry = new THREE.SphereGeometry(1, 32, 32);
+
+    const jupiterMaterial = new THREE.MeshBasicMaterial({ color: 0x8B4513 });
+
+    const jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
+
+    scene.add(jupiter);
+
+
+
+
+    // Créer la sixième orbite (ellipse) pour Saturne
+
+    const curve6 = new THREE.EllipseCurve(0, 0, 14, 13, 0, 2 * Math.PI, false, 0);
+
+    const points6 = curve6.getPoints(50);
+
+    const orbitGeometry6 = new THREE.BufferGeometry().setFromPoints(points6);
+
+    const orbitMaterial6 = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    const orbit6 = new THREE.Line(orbitGeometry6, orbitMaterial6);
+
+    scene.add(orbit6);
+
+
+
+
+    // Créer la planète Saturne
+
+    const saturnGeometry = new THREE.SphereGeometry(0.85, 32, 32);
+
+    const saturnMaterial = new THREE.MeshBasicMaterial({ color: 0xffa500 });
+
+    const saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
+
+    scene.add(saturn);
+
+
+
+
+    // Créer la septième orbite (ellipse) pour Uranus
+
+    const curve7 = new THREE.EllipseCurve(0, 0, 17, 16, 0, 2 * Math.PI, false, 0);
+
+    const points7 = curve7.getPoints(50);
+
+    const orbitGeometry7 = new THREE.BufferGeometry().setFromPoints(points7);
+
+    const orbitMaterial7 = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    const orbit7 = new THREE.Line(orbitGeometry7, orbitMaterial7);
+
+    scene.add(orbit7);
+
+
+
+
+    // Créer la planète Uranus
+
+    const uranusGeometry = new THREE.SphereGeometry(0.65, 32, 32);
+
+    const uranusMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffff });
+
+    const uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
+
+    scene.add(uranus);
+
+
+
+
+    // Créer la huitième orbite (ellipse) pour Neptune
+
+    const curve8 = new THREE.EllipseCurve(0, 0, 21, 20, 0, 2 * Math.PI, false, 0);
+
+    const points8 = curve8.getPoints(50);
+
+    const orbitGeometry8 = new THREE.BufferGeometry().setFromPoints(points8);
+
+    const orbitMaterial8 = new THREE.LineBasicMaterial({ color: 0xffffff });
+
+    const orbit8 = new THREE.Line(orbitGeometry8, orbitMaterial8);
+
+    scene.add(orbit8);
+
+
+
+
+    // Créer la planète Neptune
+
+    const neptuneGeometry = new THREE.SphereGeometry(0.6, 32, 32);
+
+    const neptuneMaterial = new THREE.MeshBasicMaterial({ color: 0x00aaff });
+
+    const neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
+
+    scene.add(neptune);
+
+
+
+
+    // Contrôles interactifs pour la caméra
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    camera.position.set(0, 0, 20);
+
+    controls.update();
+
+
+
+
+    // Variables pour animer les planètes
+
+    let angle1 = 0;
+
+    let angle2 = 0;
+
+    let angle3 = 0;
+
+    let angle4 = 0;
+
+    let angle5 = 0;
+
+    let angle6 = 0;
+
+    let angle7 = 0;
+
+    let angle8 = 0;
+
+
+
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+
+
+
+
+        // Mise à jour des angles pour chaque planète
+
+        angle1 += 0.01; // Mercure
+
+        angle2 += 0.008; // Vénus
+
+        angle3 += 0.007; // Terre
+
+        angle4 += 0.006; // Mars
+
+        angle5 += 0.004; // Jupiter
+
+        angle6 += 0.003; // Saturne
+
+        angle7 += 0.002; // Uranus
+
+        angle8 += 0.001; // Neptune
+
+
+
+
+        // Détermine la position des planètes
+
+        mercure.position.x = 3 * Math.cos(angle1);
+
+        mercure.position.y = 2 * Math.sin(angle1);
+
+
+
+
+        venus.position.x = 4 * Math.cos(angle2);
+
+        venus.position.y = 3 * Math.sin(angle2);
+
+
+
+
+        earth.position.x = 5 * Math.cos(angle3);;
+
+        earth.position.y = 4 * Math.sin(angle3);
+
+
+
+
+        mars.position.x = 6 * Math.cos(angle4);
+
+        mars.position.y = 5 * Math.sin(angle4);
+
+
+
+
+        jupiter.position.x = 12 * Math.cos(angle5);
+
+        jupiter.position.y = 11 * Math.sin(angle5);
+
+
+
+
+        saturn.position.x = 14 * Math.cos(angle6);
+
+        saturn.position.y = 13 * Math.sin(angle6);
+
+
+
+
+        uranus.position.x = 17 * Math.cos(angle7);
+
+        uranus.position.y = 16 * Math.sin(angle7);
+
+        
+
+        neptune.position.x = 21 * Math.cos(angle8);
+
+        neptune.position.y = 20 * Math.sin(angle8);
+
+
+
+
+
+
+        // Vitesse de rotation pour la première planète
+
+        angle1 += (mercure.position.x < 0) ? 0.005 : 0.02;
+
+        // Vitesse de rotation pour la deuxième planète
+
+        angle2 += (venus.position.x < 0) ? 0.005 : 0.02;
+
+        // Vitesse de rotation pour la troisième planète
+
+        angle3 += (earth.position.x < 0) ? 0.005 : 0.02;
+
+        // Vitesse de rotation pour la quatrième planète
+
+        angle4 += (mars.position.x < 0) ? 0.005 : 0.02;
+
+         // Vitesse de rotation pour la cinquième planète
+
+        angle5 += (jupiter.position.x < 0) ? 0.005 : 0.02;
+
+         // Vitesse de rotation pour la troisième planète
+
+         angle6 += (saturn.position.x < 0) ? 0.005 : 0.02;
+
+        // Vitesse de rotation pour la quatrième planète
+
+        angle7 += (uranus.position.x < 0) ? 0.005 : 0.02;
+
+         // Vitesse de rotation pour la cinquième planète
+
+        angle8 += (neptune.position.x < 0) ? 0.005 : 0.02;
+
+
+
+
+
+
+
+
+        // Rendre la scène
+
+        controls.update();
+
+        renderer.render(scene, camera);
+
+    }
+
+
+
+
+    animate();
+
+
+
+
+    // Gérer le redimensionnement de la fenêtre
+
+    window.addEventListener('resize', () => {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+    });
+
+</script>
+
+
+
+
+</body>
+
+</html>
